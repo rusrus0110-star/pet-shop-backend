@@ -1,121 +1,63 @@
 # Pet Shop Backend
 
-## Описание
+Backend API for the Pet Shop e-commerce project.
 
-Это backend часть проекта интернет-магазина товаров для домашних животных. Он реализует REST API для работы с категориями, продуктами и заказами.
+## Related Repository
 
-## Структура проекта
+Frontend repository: [pet-shop-frontend](https://github.com/rusrus0110-star/pet-shop-frontend)
+
+## Overview
+
+This is the backend part of the Pet Shop project. It provides a REST API for working with categories, products, orders, and sale requests.
+
+## Project Structure
 
 - `/database`
   - `/models`
-    - `category.js`: Модель категории
-    - `product.js`: Модель продукта
-  - `database.js`: Настройка подключения к базе данных SQLite
+    - `category.js` — category model
+    - `product.js` — product model
+  - `database.js` — SQLite database connection setup
 - `/public`
-  - `/category_img`: Изображения категорий
-  - `/product_img`: Изображения продуктов
+  - `/category_img` — category images
+  - `/product_img` — product images
 - `/routes`
-  - `categories.js`: Маршруты для работы с категориями
-  - `order.js`: Маршруты для работы с заказами
-  - `products.js`: Маршруты для работы с продуктами
-  - `sale.js`: Маршруты для работы с продажами
-- `index.js`: Главный файл сервера
-- `database.sqlite`: Файл базы данных SQLite
-- `package.json` и `package-lock.json`: Файлы зависимостей проекта
-- `README.md`: Описание проекта
+  - `categories.js` — category routes
+  - `order.js` — order routes
+  - `products.js` — product routes
+  - `sale.js` — sale request routes
+- `index.js` — main server entry point
+- `database.sqlite` — SQLite database file
+- `package.json` and `package-lock.json` — project dependencies
+- `README.md` — project documentation
 
-## Установка и запуск
+## Installation and Run
 
-1. Клонируйте репозиторий:
-
-```bash
-git clone <URL репозитория>
-```
-
-2. Перейдите в папку проекта:
+1. Clone the repository:
 
 ```bash
-cd <имя папки проекта>
+git clone <repository-url>
 ```
 
-3. Установите зависимости:
+API Endpoints
 
-```bash
-npm install
-```
+You can test the API with Postman, Thunder Client, or directly in the browser for GET requests.
 
-4. Запустите сервер:
+Main Routes
+GET /categories/all — get all categories
+GET /categories/:id — get category products by category ID
+GET /products/all — get all products
+GET /products/:id — get product by ID
+POST /order/send — submit an order
+POST /sale/send — submit a discount request
 
-```bash
-npm run dev
-```
-
-Сервер будет запущен и будет слушать запросы на порту 3333.
-
-## Проверка работы API
-
-Вы можете проверить работу API через Postman или браузер.
-
-### Примеры API маршрутов
-
-- Получение всех категорий: `GET /categories/all`
-- Получение продуктов по категории: `GET /categories/:id`
-- Получение всех продуктов: `GET /products/all`
-- Получение продукта по ID: `GET /products/:id`
-- Оформление заказа: `POST /order/send`
-- Оформление заявки на купон: `POST /sale/send`
-
-### Пример запроса
-
-#### Получение всех категорий
-
-```bash
-axios.get('http://localhost:3333/categories/all')
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
-```
-
-#### Оформление заказа
-
-```bash
-const orderData = {
-  name: "John Doe",
-  phone: "1234567890",
-  email: "johndoe@example.com",
-  products: [
-    {
-      id: 1,
-      quantity: 2
-    },
-    {
-      id: 2,
-      quantity: 1
-    }
-  ]
-};
-
-axios.post('http://localhost:3333/order/send', orderData, {
-  headers: {
-    'Content-Type': 'application/json'
-  }
-})
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
-```
-
-## Используемые технологии
-
-- Node.js
-- Express
-- Sequelize
-- SQLite
-- Cors
-- Axios
+Technologies Used
+Node.js
+Express
+Sequelize
+SQLite
+CORS
+Axios
+Notes
+The backend uses SQLite as the database.
+Product and category images are served from the /public directory.
+This project is designed as the API layer for the Pet Shop frontend application.
