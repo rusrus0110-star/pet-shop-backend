@@ -1,13 +1,13 @@
 {
-  "name": "project_backend",
+  "name": "pet-shop-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend API for the Pet Shop e-commerce project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "astemir",
+  "author": "Ruslan Chyhryn",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
